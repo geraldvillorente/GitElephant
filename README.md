@@ -105,6 +105,7 @@ $develop = Branch::checkout($repo, 'develop', true); // create and checkout
 
 
 // tags
+$repo->listTags(); // return list of tags
 $repo->getTags(); // array of Tag instances
 $repo->getTag('v1.0'); // a Tag instance by name
 Tag::pick($repo, 'v1.0'); // a Tag instance by name
@@ -173,7 +174,7 @@ $repo->commit('my first commit', true); // commit and stage every pending change
 $repo->addRemote('awesome', 'git://github.com/matteosister/GitElephant.git');
 
 // checkout
-$repo->checkout($this->getCommit('v1.0')); // checkout a tag
+$repo->checkout($repo->getTag('v1.0')); // checkout a tag
 $repo->checkout('master'); // checkout master
 
 // manage branches
